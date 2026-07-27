@@ -1,6 +1,6 @@
 # Weather Classification 🌦️
 
-Классификация погодных условий (дождь / туман / снег) по изображению с камеры — модуль компьютерного зрения для системы автономного вождения.
+Разработал модуль компьютерного зрения, который по изображению с камеры определяет погодные условия (дождь, туман, снег) — задача актуальна для систем автономного вождения, где точная адаптация алгоритмов управления к погоде напрямую влияет на безопасность движения. Прошёл полный путь разработки: провёл разведочный анализ данных, построил baseline-модель с нуля, применил transfer learning и fine-tuning предобученных архитектур, обучил ансамбль моделей с кросс-валидацией и развернул решение как API-сервис для интеграции.
 
 **Итоговый результат: Macro F1 = 0.928**
 
@@ -67,7 +67,7 @@ weather-classification/
 │   ├── 01_eda.ipynb               # разведочный анализ
 │   ├── 02_my_resnet.ipynb   # своя ResNet, F1=0.38
 │   ├── 03_resnet18.ipynb         # ResNet18/50, F1=0.80-0.928
-│   └── 04_resnet50_kfold.ipynb            # EfficientNet + k-fold, F1=0.90
+│   └── 04_resnet50_kfold.ipynb            # ResNet50 + k-fold, F1=0.91
 ├── src/
 │   ├── dataset.py                 # трансформы, TestDataset
 │   ├── model.py                   # create_model (ResNet50)
@@ -99,7 +99,7 @@ pip install -r requirements.txt
 
 1. `notebooks/01_eda.ipynb` — разведочный анализ данных
 2. `notebooks/02_my_resnet.ipynb` — baseline с нуля
-3. `notebooks/03_resnet18.ipynb` — финальная модель (ResNet50, fine-tuning), сохраняет веса в `models/`
+3. `notebooks/03_resnet18.ipynb` — финальная модель (ResNet50, fine-tuning)
 4. `notebooks/04_resnet50_kfold.ipynb` — альтернатива с k-fold ансамблем
 
 Веса моделей после обучения появятся в `models/model_fold_*.pth` — они нужны для запуска API-сервиса.
