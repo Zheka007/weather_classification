@@ -1,0 +1,10 @@
+data/train/
+data/test/
+
+models/*.pth
+
+__pycache__/
+*.pyc
+*.egg-info/
+
+.venv*/
